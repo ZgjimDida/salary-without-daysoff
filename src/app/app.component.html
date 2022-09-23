@@ -1,27 +1,29 @@
 <div class="main">
+  <h1>Salary Without Days Off</h1>
   <div class="input-form">
     <label>Salary form:</label>
-    <select [(ngModel)]="salaryForm">
+    <select [(ngModel)]="salaryForm" (ngModelChange)="changeSalaryForm()">
       <option value="0">Monthly Salary</option>
       <option value="1">Yearly Salary</option>
       <option value="2">Hourly Rate</option>
     </select>
-    {{salaryForm}}
   </div>
   <div class="input-form">
     <label>Salary:</label>
-    <input>
+    <input [(ngModel)]="baseSalary" (ngModelChange)="calculateNewSalary()" type="number">
   </div>
   <div class="input-form">
-    <label>Number of working days:</label>
-    <input>
+    <label>Number of working days:<br/><span class="smallprint">The number of working days in 2022 (it can be changed)</span></label>
+    <input [(ngModel)]="workingDays" type="number" class="no-borders" (ngModelChange)="calculateNewSalary()">
   </div>
   <div class="input-form">
     <label>Number of days off:</label>
-    <input>
+    <input [(ngModel)]="daysOff" type="number" (ngModelChange)="calculateNewSalary()">
   </div>
-  <div class="input-form">
+  <div class="input-form bold">
     <label>Calculated value:</label>
-    <input>
+    <span>{{calculatedSalary | number: '1.1-2'}}</span>
   </div>
+
+  <span class="note">Note: Sometimes, depending on the type of work you get (contract, freelance, project-based), you have to work without paid days off. Here is a simple calculator just to see what your payment would be if the paid days off were included.</span>
 </div>

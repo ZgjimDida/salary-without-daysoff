@@ -1,5 +1,11 @@
+*, label, input, p, span, input{
+	font-family: "Open Sans", sans-serif;
+	font-size:14px;
+	line-height: 18px;
+}
+
 .main{
-	width: 600px;
+	width: 400px;
 	margin: 50px auto 0;
 	background: #fff;
 	padding: 30px;
@@ -7,8 +13,55 @@
 	box-shadow: 0 0.5em 1em -0.125em #0a0a0a1a, 0 0 0 1px #0a0a0a05;
 }
 
+h1{
+	font-size:18px;
+	font-weight:600;
+	padding-bottom:30px;
+}
+
 .input-form{
 	width:100%;
 	display:block;
-	padding:20px 0;
+	padding:10px 0;
+
+	input{
+		width: 70px;
+
+		&.no-borders{
+			border:1px solid #fff;
+		}
+
+		&.no-borders:hover{
+			border:1px solid #ccc;
+		}
+	}
+
+	label{
+		padding-right:15px;
+		width:190px;
+		display:inline-block;
+		line-height:18px;
+
+		span.smallprint{
+			font-size:10px;
+			color: #777;
+		}
+	}
+}
+
+.bold{
+	label, span{
+		font-weight:600;
+	}
+}
+
+.note{
+	color: #777;
+}
+
+@media screen and (max-width: 680px){
+	.main{
+		width: calc(100% - 40px);
+		padding:20px;
+	}
 }
